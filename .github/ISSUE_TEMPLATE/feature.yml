@@ -1,0 +1,31 @@
+name: 機能実装
+description: 新しい機能やコンポーネントの実装タスク
+title: ""
+labels: []
+assignees: []
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: 説明
+      description: 実装する内容を簡潔に説明してください
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 受入要件
+      description: 受入要件をチェックボックス形式で記述してください（行を追加することで増やせます）
+      value: |
+        - [ ] 
+    validations:
+      required: true
+
+  - type: textarea
+    id: reference
+    attributes:
+      label: 参考
+      description: Figmaリンクやスクリーンショットなどがあればここにはってください
+    validations:
+      required: false
