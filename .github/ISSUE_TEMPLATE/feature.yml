@@ -1,6 +1,6 @@
 name: 機能実装
 description: 新しい機能やコンポーネントの実装タスク
-title: "[Feature] "
+labels: "enhancement"
 body:
   - type: textarea
     id: description
