@@ -17,7 +17,7 @@ body:
       label: 受入要件
       description: 受入要件をチェックボックス形式で記述してください（行を追加することで増やせます）
       value: |
-        - [ ] 
+        - [ ]
     validations:
       required: true
 
