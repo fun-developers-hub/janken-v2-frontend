@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "clean": "rm -rf node_modules"
   },
   "dependencies": {
