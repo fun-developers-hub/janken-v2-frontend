@@ -1,1 +1,0 @@
-export type Hand = "rock" | "paper" | "scissors";
