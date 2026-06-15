@@ -9,7 +9,6 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
-    "ci": "pnpm run lint && pnpm run format && pnpm run build",
     "clean": "rm -rf node_modules"
   },
   "dependencies": {
