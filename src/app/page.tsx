@@ -17,10 +17,12 @@ export default function Page() {
       </div>
       <div className="bg-newblue flex flex-1 flex-col">
         <div className="text-white">CPU</div>
-        <div className="flex justify-center">
-          <div className="box-content h-32 w-50 border-3 border-green-500 bg-white"></div>
+        <div className="flex flex-1 items-center justify-center">
+          <div className="box-content flex h-32 w-50 items-center justify-center border-3 border-green-500 bg-white">
+            <div className="text-7xl font-bold text-black">WIN</div>
+          </div>
         </div>
-        <div className="text-right text-white"> YOU</div>
+        <div className="h-5 text-right text-white"> YOU</div>
       </div>
       <div className="flex flex-1 items-center justify-center bg-violet-950 text-white">
         <div className="size-35 rounded-full bg-pink-700"></div>
