@@ -38,13 +38,13 @@ export default function Page() {
         <div className="relative">
           <div className="m-2 size-20 rounded-full bg-red-500"></div>
           <div className="absolute top-1/2 left-1/2 size-20 -translate-x-1/2 -translate-y-1/2">
-            <Image src="images/scissors.png" alt="チョキ"></Image >
+            <Image src="images/scissors.png" alt="チョキ"></Image>
           </div>
         </div>
         <div className="relative">
           <div className="m-2 size-20 rounded-full bg-yellow-300"></div>
           <div className="absolute top-1/2 left-1/2 size-20 -translate-x-1/2 -translate-y-1/2">
-            <Image src="images/paper.png" alt="パー"></Image  >
+            <Image src="images/paper.png" alt="パー"></Image>
           </div>
         </div>
       </div>
