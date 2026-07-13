@@ -42,19 +42,31 @@ export default function Page() {
         <button onClick={() => setHand("rock")} className="relative" >
           <div className="m-2 flex size-20 items-center justify-center rounded-full bg-blue-500"></div>
           <div className="absolute top-1/2 left-1/2 size-20 -translate-x-1/2 -translate-y-1/2">
-            <Image src="images/rock.png" alt="グー"></Image>
+            <Image
+              width={100}
+              height={100}
+              src="/images/rock.png"
+              alt="グー"></Image>
           </div>
         </button>
         <button onClick={() => setHand("scissors")} className="relative">
           <div className="m-2 size-20 rounded-full bg-red-500"></div>
           <div className="absolute top-1/2 left-1/2 size-20 -translate-x-1/2 -translate-y-1/2">
-            <Image src="images/scissors.png" alt="チョキ"></Image>
+            <Image
+              width={100}
+              height={100}
+              src="/images/scissors.png"
+              alt="チョキ"></Image>
           </div>
         </button>
         <button onClick={() => setHand("paper")} className="relative">
           <div className="m-2 size-20 rounded-full bg-yellow-300"></div>
           <div className="absolute top-1/2 left-1/2 size-20 -translate-x-1/2 -translate-y-1/2">
-            <Image src="images/paper.png" alt="パー"></Image>
+            <Image
+              width={100}
+              height={100}
+              src="/images/paper.png"
+              alt="パー"></Image>
           </div>
         </button>
       </div>
