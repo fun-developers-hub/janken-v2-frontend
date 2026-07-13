@@ -1,10 +1,19 @@
+"use client";
+import { useState } from "react";
+
+
+
 export default function Page() {
+  const [hand,setHand] = useState("");
   return (
     <div className="flex h-full flex-col">
       <header>
         <h1 className="bg-newgreen text-center text-4xl">TriGonFight</h1>
         {/* bgはbackground */}
         {/* この環境でh1は意味がないけど、タイトルというマークのためにつけてる */}
+        <h2>
+          {hand}
+        </h2>
       </header>
       <div className="flex flex-1 items-center justify-center bg-violet-950 text-white">
         <div className="size-35 rounded-full bg-pink-700"></div>
@@ -28,24 +37,24 @@ export default function Page() {
         <div className="size-35 rounded-full bg-pink-700"></div>
       </div>
       <div className="bg-newgreen flex h-25 items-center justify-center">
-        <div className="relative">
+        <button onClick={() => setHand("rock")} className="relative" >
           <div className="m-2 flex size-20 items-center justify-center rounded-full bg-blue-500"></div>
           <div className="absolute top-1/2 left-1/2 size-20 -translate-x-1/2 -translate-y-1/2">
             <img src="images/rock.png"></img>
           </div>
-        </div>
-        <div className="relative">
+        </button>
+        <button onClick={() => setHand("scissors")} className="relative">
           <div className="m-2 size-20 rounded-full bg-red-500"></div>
           <div className="absolute top-1/2 left-1/2 size-20 -translate-x-1/2 -translate-y-1/2">
             <img src="images/scissors.png"></img>
           </div>
-        </div>
-        <div className="relative">
+        </button>
+        <button onClick={() => setHand("paper")} className="relative">
           <div className="m-2 size-20 rounded-full bg-yellow-300"></div>
           <div className="absolute top-1/2 left-1/2 size-20 -translate-x-1/2 -translate-y-1/2">
             <img src="images/paper.png"></img>
           </div>
-        </div>
+        </button>
       </div>
     </div>
   );
