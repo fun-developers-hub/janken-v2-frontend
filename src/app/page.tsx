@@ -1,3 +1,4 @@
+import Image from "next/image";
 export default function Page() {
   return (
     <div className="flex h-full flex-col">
@@ -28,9 +29,36 @@ export default function Page() {
         <div className="size-35 rounded-full bg-pink-700"></div>
       </div>
       <div className="bg-newgreen flex h-25 items-center justify-center">
-        <div className="m-2 size-20 rounded-full bg-blue-500"></div>
-        <div className="m-2 size-20 rounded-full bg-red-500"></div>
-        <div className="m-2 size-20 rounded-full bg-yellow-300"></div>
+        <div className="relative">
+          <div className="m-2 flex size-20 items-center justify-center rounded-full bg-blue-500"></div>
+          <div className="absolute top-1/2 left-1/2 size-20 -translate-x-1/2 -translate-y-1/2">
+            <Image
+              width={100}
+              height={100}
+              src="/images/rock.png"
+              alt="グー"></Image>
+          </div>
+        </div>
+        <div className="relative">
+          <div className="m-2 size-20 rounded-full bg-red-500"></div>
+          <div className="absolute top-1/2 left-1/2 size-20 -translate-x-1/2 -translate-y-1/2">
+            <Image
+              width={100}
+              height={100}
+              src="/images/scissors.png"
+              alt="チョキ"></Image>
+          </div>
+        </div>
+        <div className="relative">
+          <div className="m-2 size-20 rounded-full bg-yellow-300"></div>
+          <div className="absolute top-1/2 left-1/2 size-20 -translate-x-1/2 -translate-y-1/2">
+            <Image
+              width={100}
+              height={100}
+              src="/images/paper.png"
+              alt="パー"></Image>
+          </div>
+        </div>
       </div>
     </div>
   );
