@@ -27,22 +27,22 @@ export default function Page() {
       <div className="flex flex-1 items-center justify-center bg-violet-950 text-white">
         <div className="size-35 rounded-full bg-pink-700"></div>
       </div>
-      <div className="bg-newgreen flex h-25 items-center justify-center ">
+      <div className="bg-newgreen flex h-25 items-center justify-center">
         <div className="relative">
           <div className="m-2 flex size-20 items-center justify-center rounded-full bg-blue-500"></div>
-          <div className=" absolute top-1/2 left-1/2  -translate-x-1/2 -translate-y-1/2 size-20">
+          <div className="absolute top-1/2 left-1/2 size-20 -translate-x-1/2 -translate-y-1/2">
             <img src="images/rock.png"></img>
           </div>
         </div>
-          <div className="relative">
-            <div className="m-2 size-20 rounded-full bg-red-500"></div>
-            <div className=" absolute top-1/2 left-1/2  -translate-x-1/2 -translate-y-1/2 size-20">
+        <div className="relative">
+          <div className="m-2 size-20 rounded-full bg-red-500"></div>
+          <div className="absolute top-1/2 left-1/2 size-20 -translate-x-1/2 -translate-y-1/2">
             <img src="images/scissors.png"></img>
           </div>
         </div>
         <div className="relative">
           <div className="m-2 size-20 rounded-full bg-yellow-300"></div>
-          <div className=" absolute top-1/2 left-1/2  -translate-x-1/2 -translate-y-1/2 size-20">
+          <div className="absolute top-1/2 left-1/2 size-20 -translate-x-1/2 -translate-y-1/2">
             <img src="images/paper.png"></img>
           </div>
         </div>
