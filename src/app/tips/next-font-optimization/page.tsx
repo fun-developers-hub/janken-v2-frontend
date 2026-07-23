@@ -1,6 +1,11 @@
 import { CodeBlock } from "../_components/CodeBlock";
 import { ConceptSection } from "../_components/ConceptSection";
-import { demoSnippet, globalsCssSnippet, layoutSnippet } from "./code";
+import {
+  demoSnippet,
+  globalsCssSnippet,
+  layoutSnippet,
+  otherFontSnippet,
+} from "./code";
 import { Demo } from "./Demo";
 
 export default function Page() {
@@ -12,12 +17,12 @@ export default function Page() {
           <p>
             <code>next/font/google</code>{" "}
             は、フォントを読み込みたいファイル（このプロジェクトでは{" "}
-            <code>src/app/layout.tsx</code>）のモジュールスコープで関数を呼び出し、
+            <code>src/app/layout.tsx</code>
+            ）のモジュールスコープで関数を呼び出し、
             <code>variable</code>{" "}
             オプションでCSS変数名を指定して使う。その戻り値の{" "}
             <code>.variable</code> を <code>html</code> タグの{" "}
-            <code>className</code>{" "}
-            に含めることで、そのCSS変数（例:{" "}
+            <code>className</code> に含めることで、そのCSS変数（例:{" "}
             <code>--font-geist-sans</code>）がページ全体で使えるようになる。
           </p>
           <p>
@@ -27,15 +32,22 @@ export default function Page() {
             として使う設定が別途必要になる。
           </p>
           <p>
-            現状の <code>src/app/globals.css</code>{" "}
-            では、<code>@theme inline</code> でTailwindの{" "}
-            <code>font-sans</code>/<code>font-mono</code>{" "}
+            現状の <code>src/app/globals.css</code> では、
+            <code>@theme inline</code> でTailwindの <code>font-sans</code>/
+            <code>font-mono</code>{" "}
             ユーティリティが読み込み済みのフォント変数を指すように紐付けられている。
             しかし <code>body</code> の <code>font-family</code> は{" "}
             <code>Arial, Helvetica, sans-serif</code>{" "}
             のまま固定されており、かつ現状どの要素にも <code>font-sans</code>/
             <code>font-mono</code>{" "}
             クラスが付いていないため、読み込んだフォントはまだどこにも適用されていない。
+          </p>
+          <p>
+            このプロジェクトでは <code>Geist</code>/<code>Geist_Mono</code>{" "}
+            を使っているが、<code>next/font/google</code> では他のGoogle
+            Fontsも同じ書き方でインポートできる。例えば日本語 フォントの{" "}
+            <code>Noto_Sans_JP</code> なども、名前を変えるだけで
+            同様に読み込める。
           </p>
           <p>
             参考:{" "}
@@ -50,6 +62,7 @@ export default function Page() {
       demo={
         <>
           <CodeBlock code={layoutSnippet} />
+          <CodeBlock code={otherFontSnippet} />
           <CodeBlock code={globalsCssSnippet} lang="css" />
           <CodeBlock code={demoSnippet} />
           <Demo />

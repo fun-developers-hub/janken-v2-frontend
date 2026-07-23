@@ -24,6 +24,16 @@ export default function RootLayout({ children }) {
 }
 `;
 
+export const otherFontSnippet = `// Geist / Geist_Mono 以外にも、Google Fontsに
+// 用意されている書体は同じ書き方でインポートできる
+import { Noto_Sans_JP } from "next/font/google";
+
+const notoSansJP = Noto_Sans_JP({
+  variable: "--font-noto-sans-jp",
+  subsets: ["latin"],
+});
+`;
+
 export const globalsCssSnippet = `/* src/app/globals.css（現状） */
 @theme inline {
   /* font-sans / font-mono というTailwindユーティリティが、
