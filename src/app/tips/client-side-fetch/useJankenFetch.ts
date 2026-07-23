@@ -1,4 +1,3 @@
-export const hookSnippet = `// useJankenFetch.ts
 "use client";
 
 import { useState } from "react";
@@ -21,7 +20,7 @@ export function useJankenFetch() {
       if (!res.ok) {
         throw new Error(data.error ?? "リクエストに失敗しました");
       }
-      setMessage(\`CPUの手: \${data.cpu_hand} / 結果: \${data.result}\`);
+      setMessage(`CPUの手: ${data.cpu_hand} / 結果: ${data.result}`);
       setStatus("success");
     } catch (error) {
       setMessage(error instanceof Error ? error.message : "不明なエラー");
@@ -31,22 +30,3 @@ export function useJankenFetch() {
 
   return { status, message, fetchHand };
 }
-`;
-
-export const demoSnippet = `// Demo.tsx
-"use client";
-
-import { useJankenFetch } from "./useJankenFetch";
-
-export function Demo() {
-  const { status, message, fetchHand } = useJankenFetch();
-
-  return (
-    <div>
-      {/* status/message はフック側に隠れ、
-          Demo は「呼ぶ」「表示する」だけになる */}
-      <button onClick={() => fetchHand("rock")}>グー</button>
-    </div>
-  );
-}
-`;

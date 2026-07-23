@@ -1,6 +1,6 @@
 import { CodeBlock } from "../_components/CodeBlock";
 import { ConceptSection } from "../_components/ConceptSection";
-import { snippet } from "./code";
+import { demoSnippet, hookSnippet } from "./code";
 import { Demo } from "./Demo";
 
 export default function Page() {
@@ -37,16 +37,31 @@ export default function Page() {
           </p>
           <p>
             下のデモでは、実バックエンド（
-            <code>https://janken.ma41.net</code>）の{" "}
-            <code>POST /janken</code>{" "}
+            <code>https://janken.ma41.net</code>）の <code>POST /janken</code>{" "}
             を直接呼び出し、正常なリクエストとエラーになるリクエストの
             両方を試せる。
+          </p>
+          <p>
+            <code>status</code>/<code>message</code> の管理とfetch処理は、
+            <code>useJankenFetch</code>{" "}
+            というカスタムフックに抽出している。こうすると <code>Demo</code>{" "}
+            コンポーネント側は「フックを呼んで、
+            返ってきた値を表示する」だけになり、見通しがよくなる。
+          </p>
+          <p>
+            ただ、この<code>idle</code>/<code>loading</code>/
+            <code>success</code>/<code>error</code>
+            の管理やエラーハンドリングは、fetchを使う場所が増えるたびに
+            同じような形で書くことになる。次の「TanStack Query の useMutation
+            で書き換える」では、この状態管理をライブラリに
+            任せる方法を紹介する。
           </p>
         </>
       }
       demo={
         <>
-          <CodeBlock code={snippet} />
+          <CodeBlock code={hookSnippet} />
+          <CodeBlock code={demoSnippet} />
           <Demo />
         </>
       }
