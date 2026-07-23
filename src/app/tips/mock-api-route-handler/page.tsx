@@ -43,8 +43,8 @@ export default function Page() {
             label: "実装例",
             content: (
               <div className="flex flex-col gap-4">
-                <CodeBlock code={routeSnippet} />
-                <CodeBlock code={demoSnippet} />
+                <CodeBlock code={routeSnippet} lang="ts" />
+                <CodeBlock code={demoSnippet} lang="ts" />
                 <Demo />
               </div>
             ),

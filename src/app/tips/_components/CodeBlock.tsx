@@ -1,11 +1,20 @@
+import { codeToHtml } from "shiki";
+
 type CodeBlockProps = {
   code: string;
+  lang?: "tsx" | "ts";
 };
 
-export function CodeBlock({ code }: CodeBlockProps) {
+export async function CodeBlock({ code, lang = "tsx" }: CodeBlockProps) {
+  const html = await codeToHtml(code, {
+    lang,
+    theme: "github-dark",
+  });
+
   return (
-    <pre className="overflow-x-auto rounded-md bg-slate-900 p-4 text-sm text-slate-100">
-      <code className="font-mono whitespace-pre">{code}</code>
-    </pre>
+    <div
+      className="overflow-x-auto rounded-md text-sm [&_pre]:m-0 [&_pre]:p-4 [&_pre]:font-mono"
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
   );
 }
