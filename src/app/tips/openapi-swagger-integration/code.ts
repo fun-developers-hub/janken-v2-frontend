@@ -1,0 +1,30 @@
+export const routeSnippet = `// src/app/tips/openapi-swagger-integration/api/route.ts
+import { NextResponse } from "next/server";
+
+export async function GET() {
+  try {
+    // ブラウザから直接叩くとCORSで失敗するため、
+    // サーバーサイドで実バックエンドのswagger docを取得して中継する。
+    const res = await fetch("https://janken.ma41.net/swagger/doc.json", {
+      cache: "no-store",
+    });
+    if (!res.ok) throw new Error(\`swagger doc.json returned \${res.status}\`);
+
+    const doc = await res.json();
+    const endpoints = Object.entries(doc.paths).flatMap(([path, methods]) =>
+      Object.entries(methods).map(([method, operation]) => ({
+        method: method.toUpperCase(),
+        path,
+        summary: operation.summary ?? "",
+      })),
+    );
+
+    return NextResponse.json({ endpoints });
+  } catch {
+    return NextResponse.json(
+      { message: "バックエンドに接続できませんでした" },
+      { status: 502 },
+    );
+  }
+}
+`;
