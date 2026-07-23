@@ -15,10 +15,27 @@ const geistMono = Geist_Mono({
 
 export default function RootLayout({ children }) {
   return (
+    // .variable を className に付けることで、
+    // --font-geist-sans / --font-geist-mono というCSS変数が使えるようになる
     <html className={\`\${geistSans.variable} \${geistMono.variable}\`}>
       <body>{children}</body>
     </html>
   );
+}
+`;
+
+export const globalsCssSnippet = `/* src/app/globals.css（現状） */
+@theme inline {
+  /* font-sans / font-mono というTailwindユーティリティが、
+     layout.tsxで読み込んだGeistフォントを指すように紐付けている */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  /* ここが Arial 等に固定されているため、
+     layout.tsxでフォントを読み込むだけでは実際には反映されない */
+  font-family: Arial, Helvetica, sans-serif;
 }
 `;
 
@@ -31,6 +48,8 @@ export function Demo() {
 
   return (
     <div>
+      {/* font-sans / font-mono クラスを付けた要素だけ、
+          読み込み済みのGeistフォントが適用される */}
       <p className={useMono ? "font-mono" : "font-sans"}>
         TriGonFight - じゃんけん勝負！
       </p>
