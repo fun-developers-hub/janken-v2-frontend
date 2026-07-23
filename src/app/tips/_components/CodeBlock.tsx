@@ -2,7 +2,7 @@ import { codeToHtml } from "shiki";
 
 type CodeBlockProps = {
   code: string;
-  lang?: "tsx" | "ts";
+  lang?: "tsx" | "ts" | "css";
 };
 
 export async function CodeBlock({ code, lang = "tsx" }: CodeBlockProps) {
