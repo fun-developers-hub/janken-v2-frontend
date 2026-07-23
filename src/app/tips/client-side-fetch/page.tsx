@@ -10,6 +10,17 @@ export default function Page() {
       explanation={
         <>
           <p>
+            実バックエンド（<code>https://janken.ma41.net</code>）が
+            どんなAPIを持っているかは、
+            <a
+              href="https://janken.ma41.net/swagger/index.html"
+              className="text-newblue underline">
+              Swagger UI
+            </a>
+            を眺めてみると分かる。パスやリクエスト/レスポンスの形が
+            一覧できるので、fetchを書く前に一度見ておくとよい。
+          </p>
+          <p>
             Client Component からAPIを呼び出すときは、 「今どういう状態か」を{" "}
             <code>idle</code>/<code>loading</code>/<code>success</code>/
             <code>error</code> のような文字列で保持しておくと、
@@ -25,9 +36,11 @@ export default function Page() {
             <code>res.ok</code> を確認して自分でエラーとして扱う必要がある。
           </p>
           <p>
-            下のデモでは、前の「Route Handler
-            で作るAPIモック」で実装したエンドポイントを再利用し、
-            正常なリクエストとエラーになるリクエストの両方を試せる。
+            下のデモでは、実バックエンド（
+            <code>https://janken.ma41.net</code>）の{" "}
+            <code>POST /janken</code>{" "}
+            を直接呼び出し、正常なリクエストとエラーになるリクエストの
+            両方を試せる。
           </p>
         </>
       }

@@ -11,14 +11,14 @@ export function Demo() {
   async function handleFetch(userHand: string) {
     setStatus("loading");
     try {
-      const res = await fetch("/tips/mock-api-route-handler/api/janken", {
+      const res = await fetch("https://janken.ma41.net/janken", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ user_hand: userHand }),
       });
       const data = await res.json();
       if (!res.ok) {
-        throw new Error(data.message ?? "リクエストに失敗しました");
+        throw new Error(data.error ?? "リクエストに失敗しました");
       }
       setMessage(`CPUの手: ${data.cpu_hand} / 結果: ${data.result}`);
       setStatus("success");
