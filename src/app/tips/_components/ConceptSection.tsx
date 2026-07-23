@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { ReactNode } from "react";
 
 type ConceptSectionProps = {
@@ -13,6 +14,9 @@ export function ConceptSection({
 }: ConceptSectionProps) {
   return (
     <article>
+      <Link href="/tips" className="text-newblue mb-4 inline-block underline">
+        ← Tips一覧へ戻る
+      </Link>
       <h2 className="mb-4 text-2xl font-bold">{title}</h2>
       <section className="mb-8">
         <h3 className="mb-2 text-lg font-bold">説明</h3>
