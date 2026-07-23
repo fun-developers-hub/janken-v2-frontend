@@ -20,7 +20,8 @@ export const concepts: Concept[] = [
     phaseLabel: "Phase 1-4",
     issueUrl:
       "https://github.com/fun-developers-hub/janken-v2-frontend/issues/23",
-    summary: "next/font/google でフォントを読み込み、実際に適用するまでの設定方法。",
+    summary:
+      "next/font/google でフォントを読み込み、実際に適用するまでの設定方法。",
   },
   {
     slug: "client-side-fetch",
@@ -30,6 +31,13 @@ export const concepts: Concept[] = [
       "https://github.com/fun-developers-hub/janken-v2-frontend/issues/11",
     summary:
       "loading/error状態を含む、クライアントコンポーネントでのfetchパターン。",
+  },
+  {
+    slug: "tanstack-query-mutation",
+    title: "TanStack Query の useMutation で書き換える",
+    phaseLabel: "Phase 2（発展）",
+    summary:
+      "自前のuseState/try-catchによる状態管理を、useMutationに任せる書き方。",
   },
   {
     slug: "count-state-management",
