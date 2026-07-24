@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Page() {
@@ -14,10 +14,15 @@ export default function Page() {
   };
   return (
     <div className="flex h-full flex-col">
-      <header>
+      <header className="relative">
         <h1 className="bg-newgreen text-center text-4xl">TriGonFight</h1>
         {/* bgはbackground */}
         {/* この環境でh1は意味がないけど、タイトルというマークのためにつけてる */}
+        <Link
+          href="/tips"
+          className="absolute top-1/2 right-2 -translate-y-1/2 text-sm underline">
+          Tips
+        </Link>
       </header>
       <div className="relative flex flex-1 items-center justify-center bg-violet-950 text-white">
         <div className="size-35 rounded-full bg-pink-700"></div>
