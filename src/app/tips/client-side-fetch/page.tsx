@@ -42,19 +42,12 @@ export default function Page() {
             両方を試せる。
           </p>
           <p>
-            <code>status</code>/<code>message</code> の管理とfetch処理は、
+            <code>status</code>/<code>cpuHand</code>/<code>result</code>{" "}
+            の管理とfetch処理は、
             <code>useJankenFetch</code>{" "}
             というカスタムフックに抽出している。こうすると <code>Demo</code>{" "}
             コンポーネント側は「フックを呼んで、
             返ってきた値を表示する」だけになり、見通しがよくなる。
-          </p>
-          <p>
-            ただ、この<code>idle</code>/<code>loading</code>/
-            <code>success</code>/<code>error</code>
-            の管理やエラーハンドリングは、fetchを使う場所が増えるたびに
-            同じような形で書くことになる。次の「TanStack Query の useMutation
-            で書き換える」では、この状態管理をライブラリに
-            任せる方法を紹介する。
           </p>
         </>
       }

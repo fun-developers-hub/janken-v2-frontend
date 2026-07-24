@@ -7,7 +7,9 @@ type Status = "idle" | "loading" | "success" | "error";
 
 export function useJankenFetch() {
   const [status, setStatus] = useState<Status>("idle");
-  const [message, setMessage] = useState("");
+  const [cpuHand, setCpuHand] = useState("");
+  const [result, setResult] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   async function fetchHand(userHand: string) {
     setStatus("loading");
@@ -21,15 +23,16 @@ export function useJankenFetch() {
       if (!res.ok) {
         throw new Error(data.error ?? "リクエストに失敗しました");
       }
-      setMessage(\`CPUの手: \${data.cpu_hand} / 結果: \${data.result}\`);
+      setCpuHand(data.cpu_hand);
+      setResult(data.result);
       setStatus("success");
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : "不明なエラー");
+      setErrorMessage(error instanceof Error ? error.message : "不明なエラー");
       setStatus("error");
     }
   }
 
-  return { status, message, fetchHand };
+  return { status, cpuHand, result, errorMessage, fetchHand };
 }
 `;
 
@@ -39,11 +42,11 @@ export const demoSnippet = `// Demo.tsx
 import { useJankenFetch } from "./useJankenFetch";
 
 export function Demo() {
-  const { status, message, fetchHand } = useJankenFetch();
+  const { status, cpuHand, result, fetchHand } = useJankenFetch();
 
   return (
     <div>
-      {/* status/message はフック側に隠れ、
+      {/* cpuHand/result はフック側で個別の状態として管理し、
           Demo は「呼ぶ」「表示する」だけになる */}
       <button onClick={() => fetchHand("rock")}>グー</button>
     </div>
