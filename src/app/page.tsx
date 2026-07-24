@@ -18,10 +18,6 @@ export default function Page() {
         <h1 className="bg-newgreen font-dotgothic16 text-center text-4xl">
           TriGonFight
         </h1>
-      <header className="relative">
-        <h1 className="bg-newgreen text-center text-4xl">TriGonFight</h1>
-        {/* bgはbackground */}
-        {/* この環境でh1は意味がないけど、タイトルというマークのためにつけてる */}
         <Link
           href="/tips"
           className="absolute top-1/2 right-2 -translate-y-1/2 text-sm underline">
