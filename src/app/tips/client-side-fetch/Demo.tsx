@@ -3,8 +3,7 @@
 import { useJankenFetch } from "./useJankenFetch";
 
 export function Demo() {
-  const { status, cpuHand, result, errorMessage, fetchHand } =
-    useJankenFetch();
+  const { status, cpuHand, result, errorMessage, fetchHand } = useJankenFetch();
 
   return (
     <div className="flex flex-col items-center gap-4">
@@ -29,9 +28,7 @@ export function Demo() {
             CPUの手: {cpuHand} / 結果: {result}
           </div>
         ) : null}
-        {status === "error" ? (
-          <div className="mt-1">{errorMessage}</div>
-        ) : null}
+        {status === "error" ? <div className="mt-1">{errorMessage}</div> : null}
       </div>
     </div>
   );
