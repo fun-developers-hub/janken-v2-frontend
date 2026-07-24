@@ -1,11 +1,7 @@
 "use client";
 import Image from "next/image";
-<<<<<<< HEAD
 import Link from "next/link";
-=======
-
 import { useState } from "react";
->>>>>>> origin/main
 
 export default function Page() {
   type Hand = "rock" | "scissors" | "paper" | "";
