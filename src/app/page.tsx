@@ -4,7 +4,14 @@ import Image from "next/image";
 import { useState } from "react";
 
 export default function Page() {
-  const [hand, setHand] = useState("");
+  type Hand = "rock" | "scissors" | "paper" | "";
+  const [hand, setHand] = useState<Hand>("");
+
+  const handLabels: Record<Exclude<Hand, "">, string> = {
+    rock: "グー",
+    scissors: "チョキ",
+    paper: "パー",
+  };
   return (
     <div className="flex h-full flex-col">
       <header>
@@ -43,16 +50,16 @@ export default function Page() {
           <div className="size-35 rounded-full bg-red-500"></div>
         ) : hand === "paper" ? (
           <div className="size-35 rounded-full bg-yellow-300"></div>
-        ) : !hand ? (
+        ) : (
           <div className="size-35 rounded-full bg-pink-700"></div>
-        ) : null}
+        )}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           {hand ? (
             <Image
               width={120}
               height={120}
               src={`/images/${hand}.png`}
-              alt={hand}></Image>
+              alt={handLabels[hand]}></Image>
           ) : null}
         </div>
       </div>
