@@ -1,4 +1,4 @@
-import { codeToHtml } from "shiki";
+import { getSingletonHighlighter } from "shiki";
 import { createJavaScriptRegexEngine } from "shiki/engine/javascript";
 
 type CodeBlockProps = {
@@ -7,11 +7,12 @@ type CodeBlockProps = {
 };
 
 export async function CodeBlock({ code, lang = "tsx" }: CodeBlockProps) {
-  const html = await codeToHtml(code, {
-    lang,
-    theme: "github-dark",
+  const highlighter = await getSingletonHighlighter({
+    langs: [lang],
+    themes: ["github-dark"],
     engine: createJavaScriptRegexEngine(),
   });
+  const html = highlighter.codeToHtml(code, { lang, theme: "github-dark" });
 
   return (
     <div
