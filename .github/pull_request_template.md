@@ -4,7 +4,7 @@
 
 ## 関連Issue
 
-close #
+closes #
 
 ## 変更内容
 
