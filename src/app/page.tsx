@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 
 import { useJankenFetch } from "../hooks/useJanken";
@@ -21,11 +20,6 @@ export default function Page() {
         <h1 className="bg-newgreen font-dotgothic16 text-center text-4xl">
           TriGonFight
         </h1>
-        <Link
-          href="/tips"
-          className="absolute top-1/2 right-2 -translate-y-1/2 text-sm underline">
-          Tips
-        </Link>
       </header>
       <div className="relative flex flex-1 items-center justify-center bg-violet-950 text-white">
         {cpuHand === "rock" ? (
