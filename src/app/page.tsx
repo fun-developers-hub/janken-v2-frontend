@@ -3,8 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+import { useJankenFetch } from "../hooks/useJanken";
+import type { Hand } from "../types";
 export default function Page() {
-  type Hand = "rock" | "scissors" | "paper" | "";
+  const { status, cpuHand, result, fetchHand } = useJankenFetch();
+
   const [hand, setHand] = useState<Hand>("");
 
   const handLabels: Record<Exclude<Hand, "">, string> = {
@@ -25,25 +28,30 @@ export default function Page() {
         </Link>
       </header>
       <div className="relative flex flex-1 items-center justify-center bg-violet-950 text-white">
-        <div className="size-35 rounded-full bg-pink-700"></div>
-        <Image
-          src="/images/scissors.png"
-          width={120}
-          height={120}
-          alt="チョキ"
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></Image>
-        {/* .circle{
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: white;
-} */}
+        {cpuHand === "rock" ? (
+          <div className="size-35 rounded-full bg-blue-500"></div>
+        ) : cpuHand === "scissors" ? (
+          <div className="size-35 rounded-full bg-red-500"></div>
+        ) : cpuHand === "paper" ? (
+          <div className="size-35 rounded-full bg-yellow-300"></div>
+        ) : (
+          <div className="size-35 rounded-full bg-pink-700"></div>
+        )}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          {cpuHand ? (
+            <Image
+              width={120}
+              height={120}
+              src={`/images/${cpuHand}.png`}
+              alt={handLabels[cpuHand]}></Image>
+          ) : null}
+        </div>
       </div>
       <div className="bg-newblue flex flex-1 flex-col">
         <div className="text-white">CPU</div>
         <div className="flex flex-1 items-center justify-center">
           <div className="box-content flex h-32 w-50 items-center justify-center border-3 border-green-500 bg-white">
-            <div className="text-7xl font-bold text-black">WIN</div>
+            <div className="text-7xl font-bold text-black">{result}</div>
           </div>
         </div>
         <div className="h-5 text-right text-white"> YOU</div>
@@ -69,7 +77,12 @@ export default function Page() {
         </div>
       </div>
       <div className="bg-newgreen flex h-25 items-center justify-center">
-        <button onClick={() => setHand("rock")} className="relative">
+        <button
+          onClick={() => {
+            setHand("rock");
+            fetchHand("rock");
+          }}
+          className="relative">
           <div className="m-2 flex size-20 items-center justify-center rounded-full bg-blue-500"></div>
           <div className="absolute top-1/2 left-1/2 size-20 -translate-x-1/2 -translate-y-1/2">
             <Image
@@ -79,7 +92,12 @@ export default function Page() {
               alt="グー"></Image>
           </div>
         </button>
-        <button onClick={() => setHand("scissors")} className="relative">
+        <button
+          onClick={() => {
+            setHand("scissors");
+            fetchHand("scissors");
+          }}
+          className="relative">
           <div className="m-2 size-20 rounded-full bg-red-500"></div>
           <div className="absolute top-1/2 left-1/2 size-20 -translate-x-1/2 -translate-y-1/2">
             <Image
@@ -89,7 +107,12 @@ export default function Page() {
               alt="チョキ"></Image>
           </div>
         </button>
-        <button onClick={() => setHand("paper")} className="relative">
+        <button
+          onClick={() => {
+            setHand("paper");
+            fetchHand("paper");
+          }}
+          className="relative">
           <div className="m-2 size-20 rounded-full bg-yellow-300"></div>
           <div className="absolute top-1/2 left-1/2 size-20 -translate-x-1/2 -translate-y-1/2">
             <Image
