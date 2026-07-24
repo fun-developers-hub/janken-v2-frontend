@@ -2,7 +2,7 @@ export default function Page() {
   return (
     <div className="flex h-full flex-col">
       <header>
-        <h1 className="bg-newgreen text-center text-4xl font-dotgothic16">
+        <h1 className="bg-newgreen font-dotgothic16 text-center text-4xl">
           TriGonFight
         </h1>
         {/* bgはbackground */}
@@ -18,13 +18,18 @@ export default function Page() {
 } */}
       </div>
       <div className="bg-newblue flex flex-1 flex-col">
-        <div className="text-3xl text-white font-jersey_15">CPU</div>
+        <div className="font-jersey_15 text-3xl text-white">CPU</div>
         <div className="flex flex-1 items-center justify-center">
           <div className="box-content flex h-32 w-50 items-center justify-center border-3 border-green-500 bg-white">
-            <div className="text-7xl font-bold text-black font-jersey_15">WIN</div>
+            <div className="font-jersey_15 text-7xl font-bold text-black">
+              WIN
+            </div>
           </div>
         </div>
-        <div className="h-5 text-right text-3xl text-white font-jersey_15"> YOU</div>
+        <div className="font-jersey_15 h-5 text-right text-3xl text-white">
+          {" "}
+          YOU
+        </div>
       </div>
       <div className="flex flex-1 items-center justify-center bg-violet-950 text-white">
         <div className="size-35 rounded-full bg-pink-700"></div>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, DotGothic16, Jersey_15} from "next/font/google";
+import { Geist, Geist_Mono, DotGothic16, Jersey_15 } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,13 +15,13 @@ const geistMono = Geist_Mono({
 const dotGothic16 = DotGothic16({
   weight: "400",
   variable: "--font-dotgothic16",
-  subsets: ['latin'],
+  subsets: ["latin"],
 });
 
 const jersey_15 = Jersey_15({
   weight: "400",
   variable: "--font-jersey_15",
-  subsets: ['latin'],
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
