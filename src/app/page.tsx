@@ -1,7 +1,21 @@
+"use client";
 import Image from "next/image";
+<<<<<<< HEAD
 import Link from "next/link";
+=======
+
+import { useState } from "react";
+>>>>>>> origin/main
 
 export default function Page() {
+  type Hand = "rock" | "scissors" | "paper" | "";
+  const [hand, setHand] = useState<Hand>("");
+
+  const handLabels: Record<Exclude<Hand, "">, string> = {
+    rock: "グー",
+    scissors: "チョキ",
+    paper: "パー",
+  };
   return (
     <div className="flex h-full flex-col">
       <header className="relative">
@@ -14,8 +28,14 @@ export default function Page() {
           Tips
         </Link>
       </header>
-      <div className="flex flex-1 items-center justify-center bg-violet-950 text-white">
+      <div className="relative flex flex-1 items-center justify-center bg-violet-950 text-white">
         <div className="size-35 rounded-full bg-pink-700"></div>
+        <Image
+          src="/images/scissors.png"
+          width={120}
+          height={120}
+          alt="チョキ"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></Image>
         {/* .circle{
   width: 100px;
   height: 100px;
@@ -32,11 +52,28 @@ export default function Page() {
         </div>
         <div className="h-5 text-right text-white"> YOU</div>
       </div>
-      <div className="flex flex-1 items-center justify-center bg-violet-950 text-white">
-        <div className="size-35 rounded-full bg-pink-700"></div>
+      <div className="relative flex flex-1 items-center justify-center bg-violet-950 text-white">
+        {hand === "rock" ? (
+          <div className="size-35 rounded-full bg-blue-500"></div>
+        ) : hand === "scissors" ? (
+          <div className="size-35 rounded-full bg-red-500"></div>
+        ) : hand === "paper" ? (
+          <div className="size-35 rounded-full bg-yellow-300"></div>
+        ) : (
+          <div className="size-35 rounded-full bg-pink-700"></div>
+        )}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          {hand ? (
+            <Image
+              width={120}
+              height={120}
+              src={`/images/${hand}.png`}
+              alt={handLabels[hand]}></Image>
+          ) : null}
+        </div>
       </div>
       <div className="bg-newgreen flex h-25 items-center justify-center">
-        <div className="relative">
+        <button onClick={() => setHand("rock")} className="relative">
           <div className="m-2 flex size-20 items-center justify-center rounded-full bg-blue-500"></div>
           <div className="absolute top-1/2 left-1/2 size-20 -translate-x-1/2 -translate-y-1/2">
             <Image
@@ -45,8 +82,8 @@ export default function Page() {
               src="/images/rock.png"
               alt="グー"></Image>
           </div>
-        </div>
-        <div className="relative">
+        </button>
+        <button onClick={() => setHand("scissors")} className="relative">
           <div className="m-2 size-20 rounded-full bg-red-500"></div>
           <div className="absolute top-1/2 left-1/2 size-20 -translate-x-1/2 -translate-y-1/2">
             <Image
@@ -55,8 +92,8 @@ export default function Page() {
               src="/images/scissors.png"
               alt="チョキ"></Image>
           </div>
-        </div>
-        <div className="relative">
+        </button>
+        <button onClick={() => setHand("paper")} className="relative">
           <div className="m-2 size-20 rounded-full bg-yellow-300"></div>
           <div className="absolute top-1/2 left-1/2 size-20 -translate-x-1/2 -translate-y-1/2">
             <Image
@@ -65,7 +102,7 @@ export default function Page() {
               src="/images/paper.png"
               alt="パー"></Image>
           </div>
-        </div>
+        </button>
       </div>
     </div>
   );

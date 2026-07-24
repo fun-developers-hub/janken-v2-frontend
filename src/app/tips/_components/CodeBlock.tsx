@@ -1,4 +1,5 @@
 import { codeToHtml } from "shiki";
+import { createJavaScriptRegexEngine } from "shiki/engine/javascript";
 
 type CodeBlockProps = {
   code: string;
@@ -9,6 +10,7 @@ export async function CodeBlock({ code, lang = "tsx" }: CodeBlockProps) {
   const html = await codeToHtml(code, {
     lang,
     theme: "github-dark",
+    engine: createJavaScriptRegexEngine(),
   });
 
   return (
