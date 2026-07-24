@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 
 import { useJankenFetch } from "../hooks/useJanken";
@@ -21,11 +20,6 @@ export default function Page() {
         <h1 className="bg-newgreen font-dotgothic16 text-center text-4xl">
           TriGonFight
         </h1>
-        <Link
-          href="/tips"
-          className="absolute top-1/2 right-2 -translate-y-1/2 text-sm underline">
-          Tips
-        </Link>
       </header>
       <div className="relative flex flex-1 items-center justify-center bg-violet-950 text-white">
         {cpuHand === "rock" ? (
@@ -48,14 +42,13 @@ export default function Page() {
         </div>
       </div>
       <div className="bg-newblue flex flex-1 flex-col">
-        <div className="font-jersey_15 text-3xl text-white">CPU</div>
+        <div className="font-jersey_15 text-3xl text-white leading-8 mx-1">CPU</div>
         <div className="flex flex-1 items-center justify-center">
-          <div className="box-content flex h-32 w-50 items-center justify-center border-3 border-green-500 bg-white">
+          <div className="box-content flex h-full w-50 items-center justify-center border-3 border-green-500 bg-white">
             <div className="font-jersey_15 text-7xl font-bold text-black">{result}</div>
           </div>
         </div>
-        <div className="font-jersey_15 h-5 text-right text-3xl text-white">
-          {" "}
+        <div className="font-jersey_15 text-right text-3xl text-white leading-8 mx-1">
           YOU
         </div>
       </div>
